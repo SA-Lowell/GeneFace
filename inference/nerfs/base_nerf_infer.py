@@ -181,7 +181,7 @@ class BaseNeRFInfer:
     def forward_system(self, batches):
         if self.use_ddp:
             del self.dataset
-            torch.multiprocessing.set_sharing_strategy('file_system')
+            torch.multiprocessing.set_sharing_strategy('file_descriptor')
             batches = copy.deepcopy(batches)
             mp.spawn(self._forward_nerf_task_ddp, nprocs=self.num_gpus, args=[batches, copy.deepcopy(hparams)])
             img_dir = self.inp['tmp_imgs_dir']

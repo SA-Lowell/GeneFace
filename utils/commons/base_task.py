@@ -14,7 +14,7 @@ from utils.commons.meters import AvgrageMeter
 from utils.commons.tensor_utils import tensors_to_scalars
 from utils.commons.trainer import Trainer
 
-torch.multiprocessing.set_sharing_strategy(os.getenv('TORCH_SHARE_STRATEGY', 'file_system'))
+torch.multiprocessing.set_sharing_strategy(os.getenv('TORCH_SHARE_STRATEGY', 'file_descriptor'))
 
 log_format = '%(asctime)s %(message)s'
 logging.basicConfig(stream=sys.stdout, level=logging.INFO,

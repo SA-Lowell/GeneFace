@@ -216,7 +216,7 @@ trans.data = best_trans.data.clone()
 light_para = lms.new_zeros((num_frames, 27), requires_grad=True)
 
 
-batch_size = 50
+batch_size = 10
 
 
 device_default = torch.device('cuda:0')
